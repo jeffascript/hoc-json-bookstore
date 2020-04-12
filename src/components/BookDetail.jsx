@@ -22,10 +22,10 @@ class BookDetail extends Component {
             />
           </div>
           <div className="col-sm-7">
-            <p>
-              <p className="font-weight-bold">Description:</p>
-              {this.state.book.description}
-            </p>
+            <div>
+              <h6 className="font-weight-bold">Description:</h6>
+              <p>{this.state.book.description}</p>
+            </div>
 
             
           </div>
