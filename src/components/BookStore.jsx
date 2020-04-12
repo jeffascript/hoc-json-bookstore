@@ -1,33 +1,51 @@
-import React, { Component } from 'react';
-import { books } from "../data/books"
-import BookList from "./BookList"
-import BookDetail from './BookDetail';
-
+import React, { Component } from "react";
+import { books } from "../data/books";
+import BookList from "./BookList";
+import BookDetail from "./BookDetail";
 
 class BookStore extends Component {
+  state = {
+    bookSelected: null,
+    allAvailableBooks: [],
+  };
 
-    state={
-        bookSelected: null
-    }
+  changeBook = (id) => this.setState({ bookSelected: id });
 
+  render() {
+    return (
+      <>
+        <hr />
 
+        {this.state.allAvailableBooks && this.state.allAvailableBooks.length > 0 ? (
+          <div className="container">
+            <div className="row">
+              <BookList
+                bookSelected={this.state.bookSelected}
+                changeBook={this.changeBook}
+                books={this.state.allAvailableBooks}
+              />
+              <BookDetail
+                bookSelected={this.state.bookSelected}
+                books={this.state.allAvailableBooks}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="container">
+            <h3 className="mx-auto">Sorry, there is no book in our Library at the Moment.</h3>
+          </div>
+        )}
+      </>
+    );
+  }
 
-    changeBook = id => this.setState({ bookSelected: id });
+  componentDidMount = () => {
+    const jsonBooks = books;
 
-    render() {
-        return (
-         <div className="container">
-                <div className="row">
-                     <BookList
-              bookSelected={this.state.bookSelected}
-              changeBook={this.changeBook}
-              books={books}
-            />
-            <BookDetail bookSelected={this.state.bookSelected} books={books} />
-                </div>
-         </div >
-        );
-    }
+    this.setState({
+      allAvailableBooks: jsonBooks,
+    });
+  };
 }
 
 export default BookStore;

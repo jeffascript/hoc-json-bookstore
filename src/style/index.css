@@ -1,3 +1,12 @@
+/*Color
+#43ECE5
+#95A4BD
+#8C99AE
+#25364F
+
+
+*/
+
 .book-cover {
     height: 15em;
   }
@@ -14,7 +23,7 @@
   }
   
   .background-div {
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
     padding: 20px;
   }
   
@@ -22,5 +31,23 @@
     border-width: 3px !important;
   }
   
+  a, p, h1, h4{
+      color: #95A4BD !important;
+  }
 
+  h3{
+    color: #8C99AE !important;
+}
   
+
+  .card{
+     background: #070D18; 
+  }
+.bg-dark{
+    background: #25364F !important;
+}
+  .btn-primary{
+    background: #25364F !important;
+    color: #43ECE5  !important;
+    border-color: #43ECE5  !important;
+  }

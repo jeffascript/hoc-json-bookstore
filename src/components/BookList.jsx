@@ -10,6 +10,6 @@ export default ({ books, changeBook, bookSelected }) => (
         changeBook={changeBook}
         bookSelected={bookSelected}
       />
-    ))} 
+    ))}
   </ul>
 );

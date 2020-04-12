@@ -1,7 +1,7 @@
 import React from "react";
 
 export default ({ id, title, imageUrl, changeBook, bookSelected }) => (
-  <li 
+  <li
     onClick={() => changeBook(id)}
     className={bookSelected === id ? "border-thick card mt-3" : "card mt-3"}
     key={title}
