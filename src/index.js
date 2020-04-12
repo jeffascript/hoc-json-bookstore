@@ -4,12 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router } from "react-router-dom";
+import "./style/index.css";
+
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router><App /></Router>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
