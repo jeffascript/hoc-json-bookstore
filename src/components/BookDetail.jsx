@@ -10,12 +10,13 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch({
       type: ADD_ITEM_TO_BORROWEDLIST,
       payload: book,
-    }),
+    })
 });
 
 class BookDetail extends Component {
   state = {
     book: null,
+    alreadySaved: false
   };
 
   handleRental = () => {
@@ -42,19 +43,19 @@ class BookDetail extends Component {
               alt="book selected"
             />
           </div>
-          <div className="col-sm-7">
+          <div className="ol-sm-8 col-md-6 col-xs-12">
             <div>
               <h6 className="font-weight-bold pt-2">Description:</h6>
               <p>{this.state.book.description}</p>
             </div>
             {this.props.user && this.props.user.username ? (
-              this.props.borrowedList.myBooks.length >= 2 ? (
+              this.props.borrowedList.myBooks.length >= 2 || this.state.alreadySaved ? (
                 <strong className="invalid">
                    Only 1 copy of this book can be borrowed at each time! <br />
               Maximum amount of books you can borrow from the library is two! 
                 </strong>
               ) : (
-                <Button color="primary" onClick={this.handleRental}>
+                <Button className="add-to-list" color="primary" onClick={this.handleRental}>
                   ADD TO MY LIST
                 </Button>
               )
@@ -70,19 +71,24 @@ class BookDetail extends Component {
       <div className="col-sm-8">
         <div className="row margin-top">
           <div className="col-sm-12 text-center">
-          { this.props.borrowedList.myBooks.length >=2 ? <h6>You have reached your limit! Delete books from your collection to have free slot</h6>: <h3>Please select a book!</h3>} 
+          { this.props.borrowedList.myBooks.length >=2  ? <h6>You have reached your limit! Delete books from your collection to have free slot</h6>: <h3>Please select a book!</h3>} 
           </div>
         </div>
       </div>
     );
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.bookSelected !== this.props.bookSelected) {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.bookSelected !== this.props.bookSelected || prevProps.borrowedList.myBooks.length !== this.props.borrowedList.myBooks.length || prevState.alreadySaved !== this.state.alreadySaved) {
       this.setState({
         book: this.props.books.find(
           (book) => book.id === this.props.bookSelected
         ),
+        alreadySaved : this.props.borrowedList.myBooks.some(book=> book.id === this.props.bookSelected) 
+/**
+ * alreadySaved will be set to === true, if the book selected is already on the saved collection; some() method returns a boolean)
+ */
+
       });
     }
   }
