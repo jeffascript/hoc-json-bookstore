@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -40,7 +40,7 @@ class BookRentalCounter extends Component {
                     className="float-right"
                     onClick={() => this.props.history.push("/mylist")}
                   >
-                    <FontAwesomeIcon icon={faShoppingCart} id="cartIcon" />
+                    <FontAwesomeIcon icon={faBook} id="cartIcon" />
                     <span className="ml-2">
                       {this.props.borrowedList.myBooks.length}
                     </span>
@@ -66,7 +66,7 @@ class BookRentalCounter extends Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              Create account
+              Create account to continue
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -74,6 +74,7 @@ class BookRentalCounter extends Component {
               <FormControl
                 aria-label="user"
                 onChange={(e) => this.setState({ username: e.target.value })}
+                placeholder="choose a username"
               />
             </InputGroup>
           </Modal.Body>

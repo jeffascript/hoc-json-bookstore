@@ -70,7 +70,7 @@ class BookDetail extends Component {
       <div className="col-sm-8">
         <div className="row margin-top">
           <div className="col-sm-12 text-center">
-            <h3>Please select a book!</h3>
+          { this.props.borrowedList.myBooks.length >=2 ? <h6>You have reached your limit! Delete books from your collection to have free slot</h6>: <h3>Please select a book!</h3>} 
           </div>
         </div>
       </div>

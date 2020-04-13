@@ -55,45 +55,30 @@ class BookStore extends Component {
     const jsonBooks = books;
     const { myBooks } = this.props.borrowedList;
 
-    const updatedBooksWithNewQty = jsonBooks.map( book =>{
-        let addedToBorrowedList =  myBooks.some(item => item.id === book.id)
-        return addedToBorrowedList ? ({...book, quantity:book.quantity -1 }) : book
-    }).filter(allCopies => allCopies.quantity > 0)
+    const updatedBooksWithNewQty = jsonBooks
+      .map((book) => {
+        let addedToBorrowedList = myBooks.some((item) => item.id === book.id);
+        return addedToBorrowedList
+          ? { ...book, quantity: book.quantity - 1 }
+          : book;
+      })
+      .filter((allCopies) => allCopies.quantity > 0);
 
     this.setState({
-        allAvailableBooks: updatedBooksWithNewQty
-      });
+      allAvailableBooks: updatedBooksWithNewQty,
+    });
 
-    // if (myBooks.length > 0) {
-    //   const newBooklist = jsonBooks.filter(
-    //     (oneBook) => !myBooks.some((item) => item.id === oneBook.id)
-    //   );
-
-    //   this.setState({
-    //     allAvailableBooks: newBooklist,
-    //   });
-    // } else {
-    //   this.setState({
-    //     allAvailableBooks: jsonBooks,
-    //   });
-    // }
   };
-
-
-
-
 
   componentDidMount = () => {
     this.repopulateBooks();
   };
 
-
-  componentDidUpdate=(prevProps)=>{
-    if(prevProps.borrowedList.myBooks !== this.props.borrowedList.myBooks){
-      this.repopulateBooks()
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.borrowedList.myBooks !== this.props.borrowedList.myBooks) {
+      this.repopulateBooks();
     }
-    console.log("updated")
-  }
+  };
 
   removebookFromStore = () => {
     const { bookSelected, allAvailableBooks } = this.state;

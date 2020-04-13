@@ -7,9 +7,9 @@ const NavBar = () => {
   return (
     <div>
       <Navbar bg="dark" variant="dark">
-        <Link to="/">
+        <Nav.Link href="/">
           <Navbar.Brand>Hexad</Navbar.Brand>
-        </Link>
+        </Nav.Link>
         <Nav className="mr-auto">
           <div className="col">
             <Link to="/">
@@ -18,7 +18,7 @@ const NavBar = () => {
           </div>
         </Nav>
         <div className="row">
-          <div className="col">
+          <div className="col mr-5">
             <Link to="/library">
               <Nav.Item>Library</Nav.Item>
             </Link>
