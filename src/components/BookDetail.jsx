@@ -32,6 +32,7 @@ class BookDetail extends Component {
       <div className="col-sm-8">
         <div className="row mt-3">
           <div className="col-sm-12">
+          { this.props.borrowedList.myBooks.length >=2  && <h6 className="invalid">You have reached your limit of 2 books! </h6>} 
             <h1>{this.state.book.title}</h1>
           </div>
         </div>
