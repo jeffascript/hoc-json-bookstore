@@ -5,7 +5,7 @@ export default function (state = {}, action) {
     case ADD_ITEM_TO_BORROWEDLIST: {
       return {
         ...state,
-        myBooks: state.myBooks.concat(action.payload),
+        myBooks: state.myBooks.concat({...action.payload, quantity:action.payload.quantity !== 1 ? 1 : action.payload.quantity}),
       };
     }
     case REMOVE_ITEM_FROM_BORROWEDLIST: {
