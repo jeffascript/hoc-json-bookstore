@@ -50,7 +50,8 @@ class BookDetail extends Component {
             {this.props.user && this.props.user.username ? (
               this.props.borrowedList.myBooks.length >= 2 ? (
                 <strong className="invalid">
-                  You have reached your limit for now!
+                   Only 1 copy of this book can be borrowed at each time! <br />
+              Maximum amount of books you can borrow from the library is two! 
                 </strong>
               ) : (
                 <Button color="primary" onClick={this.handleRental}>
@@ -59,7 +60,7 @@ class BookDetail extends Component {
               )
             ) : (
               <strong className="invalid">
-                You need to be logged in to buy
+                You need to be logged in to rent
               </strong>
             )}
           </div>

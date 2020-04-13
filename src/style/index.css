@@ -31,7 +31,7 @@
     border-width: 3px !important;
   }
   
-  a, p, h1, h4, h6, .basket-text{
+  a, p, h1, h4, h6, .basket-text, small{
       color: #95A4BD !important;
   }
 
