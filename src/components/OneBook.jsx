@@ -3,7 +3,7 @@ import React from "react";
 export default ({ id, title, imageUrl, changeBook, bookSelected, quantity }) => (
   <li
     onClick={() => changeBook(id)}
-    className={bookSelected === id ? "border-thick card mt-3" : "card mt-3"}
+    className={bookSelected === id ? "border-thick card mt-3 single-book" : "card mt-3 single-book"}
     key={title}
     style={{ cursor: "pointer" }}
   >
