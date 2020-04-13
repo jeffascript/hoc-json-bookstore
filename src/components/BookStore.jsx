@@ -3,6 +3,9 @@ import { books } from "../data/books";
 import BookList from "./BookList";
 import BookDetail from "./BookDetail";
 import BookRentalCounter from "./BookRentalCounter";
+import { connect } from "react-redux";
+
+const mapStateToProps = (state) => state;
 
 class BookStore extends Component {
   state = {
@@ -33,7 +36,7 @@ class BookStore extends Component {
               <BookDetail
                 bookSelected={this.state.bookSelected}
                 books={this.state.allAvailableBooks}
-                refresh={this.repopulateBooks}
+                updateBookStore={this.removebookFromStore}
               />
             </div>
           </div>
@@ -50,15 +53,34 @@ class BookStore extends Component {
 
   repopulateBooks = () => {
     const jsonBooks = books;
+    const { myBooks } = this.props.borrowedList;
+    if (myBooks.length > 0) {
+      const newBooklist = jsonBooks.filter(
+        (oneBook) => !myBooks.some((item) => item.id === oneBook.id)
+      );
 
-    this.setState({
-      allAvailableBooks: jsonBooks,
-    });
+      this.setState({
+        allAvailableBooks: newBooklist,
+      });
+    } else {
+      this.setState({
+        allAvailableBooks: jsonBooks,
+      });
+    }
   };
 
   componentDidMount = () => {
     this.repopulateBooks();
   };
+
+  removebookFromStore = () => {
+    const { bookSelected, allAvailableBooks } = this.state;
+    this.setState({
+      allAvailableBooks: allAvailableBooks.filter(
+        (oneBook) => oneBook.id !== bookSelected
+      ),
+    });
+  };
 }
 
-export default BookStore;
+export default connect(mapStateToProps)(BookStore);

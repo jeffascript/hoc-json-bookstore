@@ -7,31 +7,28 @@ import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import { BrowserRouter as Router, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { SET_USER_NAME } from "../actions/actionTypes"
+import { SET_USER_NAME } from "../actions/actionTypes";
 
-const mapStateToProps = state => state; 
-const mapDispatchToProps = dispatch => ({
-  setUserName: username =>
+const mapStateToProps = (state) => state;
+const mapDispatchToProps = (dispatch) => ({
+  setUserName: (username) =>
     dispatch({
       type: SET_USER_NAME,
-      payload: username
-    })
+      payload: username,
+    }),
 });
 
 class BookRentalCounter extends Component {
-
-    state = {
-      showModal: false,
-      username: null
-    }
-
+  state = {
+    showModal: false,
+    username: null,
+  };
 
   toggleModal = () => {
     this.setState({ showModal: !this.state.showModal });
   };
 
   render() {
-
     return (
       <>
         <div className="cart mt-2">
@@ -53,10 +50,10 @@ class BookRentalCounter extends Component {
             </>
           ) : (
             <Button
-            className="float-right"
+              className="float-right"
               onClick={() => this.setState({ showModal: true })}
             >
-              Login 
+              Login
             </Button>
           )}
         </div>
@@ -76,7 +73,7 @@ class BookRentalCounter extends Component {
             <InputGroup className="mb-3">
               <FormControl
                 aria-label="user"
-                onChange={e => this.setState({ username: e.target.value })}
+                onChange={(e) => this.setState({ username: e.target.value })}
               />
             </InputGroup>
           </Modal.Body>

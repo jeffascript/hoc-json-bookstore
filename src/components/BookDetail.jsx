@@ -20,7 +20,7 @@ class BookDetail extends Component {
 
   handleRental = () => {
     this.props.addToCart(this.state.book);
-    this.props.refresh();
+    this.props.updateBookStore();
     this.setState({
       book: null,
     });
