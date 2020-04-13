@@ -31,7 +31,7 @@
     border-width: 3px !important;
   }
   
-  a, p, h1, h4, h6{
+  a, p, h1, h4, h6, .basket-text{
       color: #95A4BD !important;
   }
 
@@ -50,4 +50,8 @@
     background: #25364F !important;
     color: #43ECE5  !important;
     border-color: #43ECE5  !important;
+  }
+
+  .invalid{
+    color: #43ECE5  !important;
   }

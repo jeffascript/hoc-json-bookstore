@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { books } from "../data/books";
 import BookList from "./BookList";
 import BookDetail from "./BookDetail";
+import BookRentalCounter from "./BookRentalCounter";
 
 class BookStore extends Component {
   state = {
@@ -14,9 +15,14 @@ class BookStore extends Component {
   render() {
     return (
       <>
+        <div>
+          <BookRentalCounter />
+        </div>
+
         <hr />
 
-        {this.state.allAvailableBooks && this.state.allAvailableBooks.length > 0 ? (
+        {this.state.allAvailableBooks &&
+        this.state.allAvailableBooks.length > 0 ? (
           <div className="container">
             <div className="row">
               <BookList
@@ -27,24 +33,31 @@ class BookStore extends Component {
               <BookDetail
                 bookSelected={this.state.bookSelected}
                 books={this.state.allAvailableBooks}
+                refresh={this.repopulateBooks}
               />
             </div>
           </div>
         ) : (
           <div className="container">
-            <h3 className="mx-auto">Sorry, there is no book in our Library at the Moment.</h3>
+            <h3 className="mx-auto">
+              Sorry, there is no book in our Library at the Moment.
+            </h3>
           </div>
         )}
       </>
     );
   }
 
-  componentDidMount = () => {
+  repopulateBooks = () => {
     const jsonBooks = books;
 
     this.setState({
       allAvailableBooks: jsonBooks,
     });
+  };
+
+  componentDidMount = () => {
+    this.repopulateBooks();
   };
 }
 
