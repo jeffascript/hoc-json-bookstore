@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot test 1`] = `
+Array [
+  <div>
+    <nav
+      className="navbar navbar-expand navbar-dark bg-dark"
+    >
+      <a
+        className="nav-link"
+        href="/"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        <span
+          className="navbar-brand"
+        >
+          Hexad
+        </span>
+      </a>
+      <div
+        className="mr-auto navbar-nav"
+        onKeyDown={[Function]}
+      >
+        <div
+          className="col"
+        >
+          <a
+            href="/"
+            onClick={[Function]}
+          >
+            <div
+              className="nav-item"
+            >
+              Home
+            </div>
+          </a>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col mr-5"
+        >
+          <a
+            href="/library"
+            onClick={[Function]}
+          >
+            <div
+              className="nav-item"
+            >
+              Library
+            </div>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>,
+  <div
+    className="container"
+  >
+    <div
+      className="container margin-top"
+    >
+      <div
+        className="row mt-5"
+      >
+        <div
+          className="col-sm-12 text-center background-div"
+        >
+          <h1>
+            Welcome to Hexad Book Store
+          </h1>
+          <p>
+            Click on Library at the top right corner to view books!
+          </p>
+        </div>
+      </div>
+      <hr />
+      <div
+        className="container"
+      />
+    </div>
+  </div>,
+]
+`;
