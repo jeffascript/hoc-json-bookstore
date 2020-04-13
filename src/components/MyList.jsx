@@ -45,10 +45,22 @@ class MyList extends Component {
                       alt="book selected"
                     />
                     <span className="basket-text">{book.title}</span>
+                   <span className="m-4 count"> x&nbsp;{book.quantity}</span>
                   </li>
                 ))
               : null}
           </ul>
+          <div className="row">
+          <div className="col-sm-12 font-weight-bold">
+            {savedBooks.length > 0 ? <h6>TOTAL COPIES:</h6> : <h6>No Saved Book</h6> }
+          <span className="invalid">
+                {savedBooks.length > 0 && savedBooks.reduce(
+                  (acc, currentValue) => acc + parseFloat(currentValue.quantity),
+                  0
+            )}
+          </span>
+          </div>
+        </div>
         </div>
       </>
     );
