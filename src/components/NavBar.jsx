@@ -8,7 +8,7 @@ const NavBar = () => {
     <div>
       <Navbar bg="dark" variant="dark">
         <Nav.Link href="/">
-          <Navbar.Brand>Hexad</Navbar.Brand>
+          <Navbar.Brand>Jeff</Navbar.Brand>
         </Nav.Link>
         <Nav className="mr-auto">
           <div className="col">
